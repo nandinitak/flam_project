@@ -1,0 +1,120 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg,rgb(78, 143, 171), #203a43,rgb(210, 92, 92));
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Animated Welcome Heading */
+.flam-welcome-text {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5, #4ade80);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideFadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.flam-subtitle {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: fadeIn 2s ease 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Cards with 3D Tilt Effect */
+.card {
+  background: linear-gradient(135deg,rgb(133, 52, 52),rgb(41, 87, 133));
+  border-radius: 20px;
+  padding: 2rem;
+  width: 280px;
+  box-shadow: 0 10px 25px rgba(144, 21, 21, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,rgb(251, 169, 97), #00bcd4,rgb(96, 33, 243), #00bcd4);
+  background-size: 400% 400%;
+  animation: card-glow 10s ease infinite;
+  opacity: 0.2;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes card-glow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card:hover {
+  transform: rotateY(8deg) rotateX(4deg) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button {
+  margin-top: 1rem;
+  background: #2196f3;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #1e88e5;
+  transform: scale(1.05);
+}
