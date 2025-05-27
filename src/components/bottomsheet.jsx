@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import "./bottomSheet.css";
+import "./bottomsheet.css";
 
 const BottomSheet = () => {
   const sheetRef = useRef(null);
